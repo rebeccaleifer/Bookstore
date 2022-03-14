@@ -15,5 +15,22 @@ namespace Bookstore.Models
             context = temp;
         }
         public IQueryable<Books> Books => context.Books;
+
+        public void SaveOrder(Books b)
+        {
+            context.SaveChanges();
+        }
+
+        public void CreateOrder(Books b)
+        {
+            context.Add(b);
+            context.SaveChanges();
+        }
+
+        public void DeleteOrder(Books b)
+        {
+            context.Remove(b);
+            context.SaveChanges();
+        }
     }
 }
